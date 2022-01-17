@@ -15,7 +15,7 @@ $("input").on("input", function (e) {
      flag = 0;   
      $("h1").html("Level - "+ (pattern.length + 1));
      playContinue();  }
-     setTimeout(function(){ startGame(e.originalEvent.data);},200);
+     setTimeout(function(){ startGame(e.originalEvent.data);},500);
  });
 // user input 
 $(".btn").on("click", function () {
