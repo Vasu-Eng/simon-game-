@@ -9,6 +9,14 @@ $(document).on("keydown", function (e) {
     playContinue();}
     setTimeout(function(){ startGame(e.key);},200);
 });
+$("input").on("input", function (e) {
+     console.log(e.originalEvent.data);
+    if(e.originalEvent.data =="r" && flag ==1) {
+     flag = 0;   
+     $("h1").html("Level - "+ (pattern.length + 1));
+     playContinue();  }
+     setTimeout(function(){ startGame(e.originalEvent.data);},200);
+ });
 // user input 
 $(".btn").on("click", function () {
     react(IdtoNum(this.id));
@@ -20,7 +28,8 @@ $(".btn").on("click", function () {
         animation(arrayEquals(pattern,user_in));
     },400);
     }
-});    
+}); 
+ 
 
 function startGame(pressedKey) {
     if (pressedKey == "a") {
@@ -33,7 +42,7 @@ function startGame(pressedKey) {
 
 function animation(bool){ 
 if (bool == false){
-    $("h1").html("Game-over! press R key to restart");
+    $("h1").html("Game-over! press/type R key to restart");
     $("body").addClass("game-over");
     playsound("wrong");
     setTimeout( function(){
